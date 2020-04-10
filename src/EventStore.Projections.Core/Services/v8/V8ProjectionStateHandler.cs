@@ -238,7 +238,7 @@ namespace EventStore.Projections.Core.Services.v8 {
 			return !(@event.eventName.IsEmptyString() || @event.streamId.IsEmptyString() || @event.isJson && @event.body.IsEmptyString());
 		}
 		
-		// That function assumes 'IsValidEvent' was called upfront.
+		// This function assumes 'IsValidEvent' was called upfront.
 		private static bool IsValidLinkEvent(EmittedEventJsonContract @event) {
 			var parts = @event.body.Split(LinkToSeparator, 2);
 			return long.TryParse(parts[0], out long _);
