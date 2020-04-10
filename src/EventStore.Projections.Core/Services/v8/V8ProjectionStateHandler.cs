@@ -70,12 +70,12 @@ namespace EventStore.Projections.Core.Services.v8 {
 			}
 
 			if (!IsValidEvent(emittedEvent)) {
-				Log.Warning($"Malformed emitted event was ignored: streamId: [{emittedEvent.streamId}], eventType: [{emittedEvent.eventName}], payload: [{emittedEvent.body}]");
+				Log.Warning($"Invalid emitted event was ignored: streamId: [{emittedEvent.streamId}], eventType: [{emittedEvent.eventName}], payload: [{emittedEvent.body}]");
 				return;
 			}
 			
 			if (emittedEvent.eventName.Equals(LinkType) && !IsValidLinkEvent(emittedEvent)) {
-				Log.Warning($"Malformed emitted link event was ignored: streamId: [{emittedEvent.streamId}], eventType: [{emittedEvent.eventName}], payload: [{emittedEvent.body}]");
+				Log.Warning($"Invalid emitted link event was ignored: streamId: [{emittedEvent.streamId}], eventType: [{emittedEvent.eventName}], payload: [{emittedEvent.body}]");
 				return;
 			}
 			

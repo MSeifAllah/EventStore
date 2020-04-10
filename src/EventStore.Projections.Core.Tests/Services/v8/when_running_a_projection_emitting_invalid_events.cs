@@ -5,7 +5,7 @@ using EventStore.Projections.Core.Tests.Services.projections_manager;
 using NUnit.Framework;
 
 namespace EventStore.Projections.Core.Tests.Services.v8 {
-	public class when_running_a_v8_projection_emitting_malformed_events : TestFixtureWithJsProjection {
+	public class when_running_a_v8_projection_emitting_invalid_events : TestFixtureWithJsProjection {
 		protected override void Given() {
 			_projection = @"
                 fromAll().when({$any: 
