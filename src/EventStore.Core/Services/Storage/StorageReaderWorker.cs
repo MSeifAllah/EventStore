@@ -603,7 +603,7 @@ namespace EventStore.Core.Services.Storage {
 						return ResolvedEvent.ForFailedResolvedLink(eventRecord, res.Result, commitPosition);
 					}
 					
-					Log.Warning($"Wrong link event payload [{linkPayload}]: {eventRecord}");
+					Log.Warning($"Invalid link event payload [{linkPayload}]: {eventRecord}");
 					return ResolvedEvent.ForUnresolvedEvent(eventRecord, commitPosition);
 				} catch (Exception exc) {
 					Log.Error(exc, "Error while resolving link for event record: {eventRecord}",
